@@ -330,7 +330,7 @@ export const sectionSpacing = {
 // EXPORT ALL
 // ============================================
 
-export default {
+const designSystem = {
   colors,
   spacing,
   typography,
@@ -343,3 +343,5 @@ export default {
   containerStyles,
   sectionSpacing,
 };
+
+export default designSystem;

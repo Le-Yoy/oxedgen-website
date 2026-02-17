@@ -174,7 +174,7 @@ export default function ServicesSection() {
             <span className="gradient-text">Actually Do</span>
           </h2>
           <p className="text-brand-white/70 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            Seven ways we help brands grow. No fluff, just what you'll get and how long it takes.
+            Seven ways we help brands grow. No fluff, just what you&apos;ll get and how long it takes.
           </p>
         </motion.div>
 
@@ -301,7 +301,7 @@ export default function ServicesSection() {
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-cyan to-brand-orange rounded-full font-semibold text-brand-white hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(66,189,239,0.3)]"
           >
-            Let's Build Something
+            Let&apos;s Build Something
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

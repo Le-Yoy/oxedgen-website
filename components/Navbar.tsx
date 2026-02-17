@@ -199,12 +199,11 @@ export default function Navbar() {
 
           {/* Desktop Navigation - 3D Floating Cards */}
           <div className="hidden md:flex items-center gap-1 relative" style={{ perspective: '1000px' }}>
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <NavLink3D
                 key={link.name}
                 href={link.href}
                 isActive={pathname === link.href}
-                index={index}
               >
                 {link.name}
               </NavLink3D>
@@ -221,7 +220,7 @@ export default function Navbar() {
                 style={{ transformStyle: 'preserve-3d' }}
                 className="relative px-6 py-2.5 bg-gradient-to-r from-brand-orange via-[#FF8C42] to-brand-orange rounded-full font-semibold text-brand-white overflow-hidden"
               >
-                <span className="relative z-10">Let's Talk</span>
+                <span className="relative z-10">Let&apos;s Talk</span>
 
                 {/* Animated shine */}
                 <div className="absolute inset-0 animate-shine bg-gradient-to-r from-transparent via-white/30 to-transparent" style={{ backgroundSize: '200% 100%' }} />
@@ -325,12 +324,10 @@ function NavLink3D({
   href,
   children,
   isActive,
-  index,
 }: {
   href: string;
   children: React.ReactNode;
   isActive: boolean;
-  index: number;
 }) {
   const [isHovered, setIsHovered] = useState(false);
 

@@ -53,7 +53,7 @@ export default function AboutSection() {
             <span className="gradient-text">Actually Works</span>
           </h2>
           <p className="text-brand-white/70 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            From our studio in Rabat, we craft digital experiences that don't just look pretty—they perform. Less buzzwords, more results.
+            From our studio in Rabat, we craft digital experiences that don&apos;t just look pretty—they perform. Less buzzwords, more results.
           </p>
         </motion.div>
 
@@ -98,7 +98,7 @@ export default function AboutSection() {
                 <NetworkIcon />
               </div>
               <CountUpNumber end={100} suffix="+" delay={0.6} />
-              <p className="text-brand-white/70 mt-2 text-sm">Brands We've Scaled</p>
+              <p className="text-brand-white/70 mt-2 text-sm">Brands We&apos;ve Scaled</p>
             </div>
           </TiltCard>
 
