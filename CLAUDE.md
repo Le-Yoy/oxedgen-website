@@ -377,26 +377,94 @@ npm run lint
 
 ## DEPLOYMENT
 
-### Vercel (Recommended)
+### ⚠️ CRITICAL: Pre-Deployment Checklist
 
-**Status:** Not yet deployed
+**ALWAYS run these commands BEFORE pushing to GitHub:**
 
-**Steps when ready:**
+```bash
+# 1. Test build locally (catches ESLint errors)
+npm run build
 
-1. **Connect to Vercel:**
+# 2. Check for linting issues
+npm run lint
+
+# 3. Fix any errors, then commit
+git add .
+git commit -m "Your message"
+git push
+```
+
+### Common ESLint Errors & Fixes
+
+**1. Unescaped Apostrophes in JSX**
+```jsx
+❌ BAD:  <p>Don't do this</p>
+✅ GOOD: <p>Don&apos;t do this</p>
+```
+
+**2. Unused Variables**
+```tsx
+❌ BAD:  function Component({ value, unusedProp }: Props)
+✅ GOOD: function Component({ value }: Props)
+```
+
+**3. Anonymous Default Exports**
+```ts
+❌ BAD:  export default { colors, spacing };
+✅ GOOD: const theme = { colors, spacing }; export default theme;
+```
+
+### Vercel Deployment (Recommended)
+
+**Status:** ✅ Deployed at https://github.com/Le-Yoy/oxedgen-website
+
+**First-Time Deployment (Use Dashboard - Easier):**
+
+1. **Push to GitHub:**
    ```bash
-   npm i -g vercel
-   vercel login
-   vercel
+   # Create repo and push
+   gh repo create project-name --public --source=. --remote=origin --push
    ```
 
-2. **Add Environment Variables in Vercel:**
-   - Dashboard → Project Settings → Environment Variables
+2. **Deploy via Vercel Dashboard:**
+   - Go to https://vercel.com/new
+   - Click "Import Project"
+   - Select your GitHub repo
+   - Click "Deploy" (auto-detects Next.js)
+   - Add environment variables if needed
+
+3. **Add Environment Variables (if needed):**
+   - Vercel Dashboard → Project Settings → Environment Variables
    - Add: `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_TABLE_NAME`
 
-3. **Deploy:**
-   - Auto-deploys on push to `main` branch
-   - Preview deployments for other branches
+**Subsequent Deployments:**
+- Auto-deploys on push to `main` branch
+- Preview deployments for other branches
+- No manual action needed
+
+**Alternative: Vercel CLI (Requires Login)**
+```bash
+# Only if you prefer CLI (requires browser login)
+vercel login
+vercel --prod
+```
+
+### Deployment Workflow (Best Practice)
+
+```bash
+# 1. Test locally
+npm run build
+
+# 2. Fix any errors
+
+# 3. Commit & push
+git add .
+git commit -m "Feature: description"
+git push
+
+# 4. Vercel auto-deploys (if connected)
+# Or manually deploy via dashboard
+```
 
 **Performance Targets:**
 - ⚡ Load Time: <2 seconds
@@ -404,6 +472,19 @@ npm run lint
 - ♿ Accessibility: WCAG 2.1 AA
 - 🔍 SEO: Optimized meta tags
 - 🚀 Lighthouse: 90+ across all metrics
+
+### Troubleshooting Deployment Issues
+
+**Build Fails on Vercel:**
+1. Check build logs in Vercel dashboard
+2. Run `npm run build` locally to reproduce
+3. Fix ESLint errors (see common errors above)
+4. Push fixes, Vercel will auto-redeploy
+
+**Environment Variables Not Working:**
+1. Ensure variables are added in Vercel dashboard
+2. Redeploy after adding variables
+3. Check variable names match `.env.example`
 
 ---
 
